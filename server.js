@@ -35,13 +35,13 @@ app.get('/api/imgSearch/:name',function(req,res){
 app.get('/api/latest/imgsearch',function(req,res){
    mongo.connect(dbUrl,function(err,db){
        var imgSearchList = db.collection('imgSearchList');
-       imgSearchList.find({},{_id:0}).limit(10).toArray(function(err,docs){
+       imgSearchList.find({},{_id:0}).sort({_id:-1}).limit(10).toArray(function(err,docs){
           if(err){
               db.close()
               res.end('wtf');
           } else {
               db.close();
-              res.json(docs.reverse());
+              res.json(docs);
               
           }
        });
