@@ -1,18 +1,158 @@
 # Image Search API
 
-## Example Usage
-- https://imgsearch-fcc.herokuapp.com/api/imgSearch/google?offset=2
-- https://imgsearch-fcc.herokuapp.com/api/latest/imgsearch
+A RESTful API for searching images using Google Custom Search with MongoDB-based search history tracking.
 
-## Example Output
-```
-[{"url":"https://yt3.ggpht.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAAAAAA/OixOH_h84Po/s900-c-k-no-mo-rj-c0xffffff/photo.jpg","snippet":"Google - YouTube","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5ZdpBJrE4SAAcDdOdRjFDbi78-qLkpWuHpiC6MMNxkB_LdPO0pcb-CemNCw","context":"https://www.youtube.com/user/Google"},{"url":"https://lh3.googleusercontent.com/0-BzaWtxoAnsBjQ_wzUcKxyF07XE7v2Kkg1ogPVUdzmQpvaz118uHQEGU6BdtzJuzfo=h556","snippet":"Google Inc.","thumbnail":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF-T64fJ2IBDaZoXZI_EZ-U5ZdKtFBMuD5IrFP8EIrK3U4BtN4Mb0od6i0","context":"https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox"},{"url":"http://mobilemarketingwatch.com/wp-content/uploads/2016/05/Is-Google-Searching-for-the-Next-Big-Thing1.jpg","snippet":"Google, Merkle Partner for New ...","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRxLpObPqbTUrW1xHOfcFXPhppzY6hy7NSa3RMUhZnfqXHnsOsDcxvzizA","context":"http://mobilemarketingwatch.com/tag/google/"},{"url":"https://www.wired.com/wp-content/uploads/2015/09/google-logo.jpg","snippet":"Google's New Logo Is Trying ...","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQNBPLVKTGPOkOnYkKExPkiEAFHote8T1vTk8SAMShXmoOIlZpxrML4YLE","context":"https://www.wired.com/2015/09/googles-new-logo-trying-really-hard-look-friendly/"},{"url":"http://www.google.co.nz/doodle4google/images/splashes/featured.png","snippet":"Google","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSCJx1S83Ylj0_Mes1pvOzOgROQWStQwkPMKmZRadPVWRJUwZVPVGBmOCs","context":"http://allthe2048.com/community-games/google.html"},{"url":"https://3.bp.blogspot.com/-6kQTDq40iPs/VzvENRRLjFI/AAAAAAAADAo/fFqq9s0-DUIBcacDsgvUkvKEZJEmglcBwCLcB/s1600/google_play_logo.png","snippet":"... you can find more Google ...","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQvey2SdHvnboBWFcq7oBiNw8ro6uAj20l_ClPI6Dy60rrO0xdf57lDnA-f1g","context":"http://android-developers.blogspot.com/2016/05/whats-new-in-google-play-at-io-2016.html"},{"url":"http://thekingmaker.me/wp-content/uploads/2016/01/Google-1.jpg","snippet":"How Do Google Rank Websites?","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJUr0TlxDZPOG2p7HA3O0mNAEaZXk65DevXSnxuy4mATg3WaVQ40HdmWFo","context":"http://thekingmaker.me/seo/how-do-google-rank-websites/"},{"url":"https://2.bp.blogspot.com/-3UuL0Dlv9RQ/Vzx1HvHCTEI/AAAAAAAASUQ/uZfManQSGX8VWNn8Jw-P_8FDV3L0UU46QCLcB/s1600/OPA_Social_v04_JRS_2016-05-17.gif","snippet":"So you can summon Google's ...","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT0Mlem95M288qrgfANyX5k2oPnhilXv1o6KdK1kyuFDoSPkQvzYgLdo-CG","context":"https://googleblog.blogspot.com/2016/05/io-building-next-evolution-of-google.html"},{"url":"https://4.bp.blogspot.com/-Nyfdpymc_Lo/VkQw-nJ79mI/AAAAAAAARYg/6o9VeoTvu-I/s1600-r/logo_chrome.png","snippet":"Google Chrome - Google+","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ-cq4kGzWTNgKi0H6922DKCGRT0E7I4pawXQs8F1acgtzlxGKfD0Gd8jMO9Q","context":"https://plus.google.com/+Chrome"},{"url":"https://lh3.googleusercontent.com/DKoidc0T3T1KvYC2stChcX9zwmjKj1pgmg3hXzGBDQXM8RG_7JjgiuS0CLOh8DUa7as=w300","snippet":"Cover art","thumbnail":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSa0hqOW9q0QRDgUONsOvXifnDu-1AXfcU-Bf-vU8BqO1IjfwIyKiOqy3o","context":"https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox"}]
-```
-```
-[{"term":"google","when":"2016-10-15T08:34:36.105Z"}]
+## Features
+
+- Search images using Google Custom Search API
+- Track search history with timestamps
+- Retrieve latest search queries
+- Health check endpoint for monitoring
+
+## Prerequisites
+
+- Node.js >= 14.0.0
+- MongoDB database
+- Google Custom Search API key
+- Google Custom Search Engine ID
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/aungmyokyaw/img-search-api.git
+cd img-search-api
 ```
 
-## Installation
+### 2. Install dependencies
+
+```bash
+npm install
 ```
+
+### 3. Configure environment variables
+
+Copy the example environment file and configure your credentials:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your actual credentials:
+
+| Variable | Description | How to obtain |
+|----------|-------------|---------------|
+| `PORT` | Server port (default: 8080) | Optional |
+| `MONGODB_URI` | MongoDB connection string | Your MongoDB instance |
+| `GOOGLE_API_KEY` | Google API key | [Google Cloud Console](https://console.developers.google.com/) |
+| `GOOGLE_CSE_ID` | Custom Search Engine ID | [Google CSE](https://cse.google.com/) |
+
+### 4. Start the server
+
+```bash
 npm start
 ```
+
+## API Endpoints
+
+### Search Images
+
+```
+GET /api/imgSearch/:searchTerm?offset=2
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `searchTerm` | string | Yes | The term to search for (URL parameter) |
+| `offset` | number | No | Page number for pagination (default: 1, max: 100) |
+
+**Example Request:**
+
+```bash
+curl http://localhost:8080/api/imgSearch/cats?offset=2
+```
+
+**Response:**
+
+```json
+[
+  {
+    "url": "https://example.com/image1.jpg",
+    "snippet": "Image description",
+    "thumbnail": "https://example.com/thumb1.jpg",
+    "context": "https://example.com/page"
+  }
+]
+```
+
+### Get Latest Searches
+
+```
+GET /api/latest/imgsearch
+```
+
+Returns the last 10 search queries.
+
+**Example Request:**
+
+```bash
+curl http://localhost:8080/api/latest/imgsearch
+```
+
+**Response:**
+
+```json
+[
+  {
+    "term": "cats",
+    "when": "2024-01-15T08:34:36.105Z"
+  }
+]
+```
+
+### Health Check
+
+```
+GET /health
+```
+
+Returns server health status.
+
+**Response:**
+
+```json
+{
+  "status": "ok",
+  "timestamp": "2024-01-15T08:34:36.105Z"
+}
+```
+
+## Error Responses
+
+| Status Code | Description |
+|-------------|-------------|
+| 400 | Bad Request - Invalid input parameters |
+| 404 | Not Found - Endpoint does not exist |
+| 500 | Internal Server Error - Something went wrong |
+
+**Error Response Format:**
+
+```json
+{
+  "error": "Error message description"
+}
+```
+
+## Tech Stack
+
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database:** MongoDB
+- **API:** Google Custom Search API
+
+## License
+
+ISC
