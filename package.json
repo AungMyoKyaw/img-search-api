@@ -1,18 +1,32 @@
 {
   "name": "image_search_api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A RESTful API for searching images using Google Custom Search with search history tracking",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "image-search",
+    "google-custom-search",
+    "api",
+    "mongodb"
+  ],
   "author": "Aung Myo Kyaw",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aungmyokyaw/img-search-api.git"
+  },
   "dependencies": {
-    "express": "^4.14.0",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
     "google-images": "^2.0.0",
     "mongodb": "^2.2.10"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
